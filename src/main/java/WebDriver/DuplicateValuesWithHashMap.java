@@ -1,14 +1,11 @@
 package WebDriver;
 
 import java.util.HashMap;
-import java.util.Set;
 
-public class DailyJava {   
-
-
-
-	public static void main(String[] args)  {
+public class DuplicateValuesWithHashMap {
 	
+	public static void main(String[] args)  {
+		
 		int ar[]= {1,2,4,6,7,9,10,3,2,1,10};
 		HashMap<Integer, Integer> hs = new HashMap<Integer, Integer>();
 		
@@ -19,11 +16,5 @@ public class DailyJava {
 		
 		System.out.println(hs.keySet());
 	}
-	
 
-	}
-  
-
-	
-
-
+}

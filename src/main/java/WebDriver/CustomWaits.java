@@ -1,5 +1,6 @@
 package WebDriver;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 public class CustomWaits {
 
@@ -16,13 +18,17 @@ public class CustomWaits {
 		ChromeOptions ops = new ChromeOptions();
 		ops.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(ops);
-		driver.get("https://www.amazon.com/");
+		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		//waitForPageLoad(10);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 
-		By amazonDevices = By.linkText("Amazon Devices123");
+		By amazonDevices = By.linkText("Login ");
 
-		retryingElement(amazonDevices, 10).click();
+		WebElement ele=retryingElement(amazonDevices, 10);
+		Actions act = new Actions(driver);
 		
+		act.click(ele).perform();
 		
 	}
 	public static WebElement getElement(By locator) {
@@ -34,10 +40,11 @@ public class CustomWaits {
 		WebElement element = null;
 		int attempts = 0;
 
-		while (attempts < timeOut) {
+		while (timeOut > attempts) {
 
 			try {
 				element = getElement(locator);
+				 System.out.println(element.getText());
 				System.out.println("element is found....in attempt: " + (attempts + 1));
 				break;
 			} catch (NoSuchElementException e) {
@@ -61,6 +68,7 @@ public class CustomWaits {
 						+ "with the interval of : " + 500 + " ms");
 			}
 		}
+		System.out.println(element);
 
 		return element;
 
