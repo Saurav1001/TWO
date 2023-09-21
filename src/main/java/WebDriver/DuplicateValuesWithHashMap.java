@@ -15,7 +15,7 @@ public class DuplicateValuesWithHashMap {
 		}
 		
 		System.out.println(hs.keySet());
-		System.out.println(hs.keySet());
+		
 	}
 
 }
