@@ -1,13 +1,11 @@
 package WebDriver;
 
-public class A {
+public abstract class A {
 	
-	public void a() {
-		System.out.println("in a class method");
+	public   void abc() {
+		System.out.println("in abstract class");
 	}
 	
-	public static void b() {
-		System.out.println("in a static  class method");
-	}
+	public abstract void abcd();
 
 }

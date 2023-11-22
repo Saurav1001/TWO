@@ -16,7 +16,7 @@ public class Interview {
 	
 	public static void main(String[] args) throws Exception{
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=checkout/checkout");
+		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 		
 		driver.manage().window().maximize();
